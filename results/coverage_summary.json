@@ -1,0 +1,55 @@
+{
+  "generated_on": "2026-10-09",
+  "command": "coverage run --branch --source=src/mftm -m pytest -q && coverage report -m",
+  "scope": "production package src/mftm only",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "pytest": "9.0.2",
+  "test_cases_passed": 515,
+  "failures": 0,
+  "statements": {
+    "covered": 171,
+    "total": 171,
+    "coverage_percent": 100
+  },
+  "branches": {
+    "covered": 84,
+    "total": 84,
+    "coverage_percent": 100
+  },
+  "modules": [
+    {
+      "module": "src/mftm/__init__.py",
+      "statements_covered": 4,
+      "statements_total": 4,
+      "branches_covered": 0,
+      "branches_total": 0,
+      "coverage_percent": 100
+    },
+    {
+      "module": "src/mftm/distances.py",
+      "statements_covered": 58,
+      "statements_total": 58,
+      "branches_covered": 30,
+      "branches_total": 30,
+      "coverage_percent": 100
+    },
+    {
+      "module": "src/mftm/partial_order.py",
+      "statements_covered": 28,
+      "statements_total": 28,
+      "branches_covered": 16,
+      "branches_total": 16,
+      "coverage_percent": 100
+    },
+    {
+      "module": "src/mftm/reconstruction.py",
+      "statements_covered": 81,
+      "statements_total": 81,
+      "branches_covered": 38,
+      "branches_total": 38,
+      "coverage_percent": 100
+    }
+  ],
+  "caveat": "Coverage records execution of statements and branch outcomes under this suite; it is not proof of correctness for all possible inputs or of physical claims."
+}
