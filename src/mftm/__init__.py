@@ -1,13 +1,31 @@
 """Magnitude-First Temporal Model research utilities."""
 
 from .distances import (
-    coordinates_to_distances,
     classical_mds_gram,
+    coordinates_to_distances,
+    distance_metrics,
     validate_distance_matrix,
+    validate_pseudometric,
+)
+from .reconstruction import (
+    align_coordinates,
+    coordinate_origin,
+    inertial_proper_time,
+    orient_from_directed_relation,
+    reconstruct_coordinates_1d,
+    reconstruction_residuals,
 )
 
 __all__ = [
-    "coordinates_to_distances",
+    "align_coordinates",
     "classical_mds_gram",
+    "coordinate_origin",
+    "coordinates_to_distances",
+    "distance_metrics",
+    "inertial_proper_time",
+    "orient_from_directed_relation",
+    "reconstruct_coordinates_1d",
+    "reconstruction_residuals",
     "validate_distance_matrix",
+    "validate_pseudometric",
 ]
