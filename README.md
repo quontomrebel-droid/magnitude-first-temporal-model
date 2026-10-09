@@ -40,7 +40,9 @@ PYTHONPATH=src python experiments/run_baseline.py
 
 The committed result files record the synthetic experiment and test execution. Fixed random seeds are used. For exact details and caveats, see experiments/README.md and results/experiment_results.json.
 
-The expanded local suite currently passes 502 tests across the core, property-style, specification, and partial-order modules. This is software-level evidence only. The partial-order helper tests alternative order structures as explicitly supplied constraints; it does not infer causal edges from magnitudes.\n\n## Hypothesis registry
+The expanded local suite currently passes 502 tests across the core, property-style, specification, and partial-order modules. This is software-level evidence only. The partial-order helper tests alternative order structures as explicitly supplied constraints; it does not infer causal edges from magnitudes.
+
+## Hypothesis registry
 
 The formal registry is H1–H10 in HYPOTHESES.md. Each item has a classification, current status, and status-change criterion. Status labels distinguish proof from computational support and from empirical physical evidence.
 
