@@ -1,0 +1,2 @@
+$ python -m pip check
+ENVIRONMENT ISSUE (unrelated to MFTM): moviepy 2.2.1 requires pillow>=9.2.0,<12.0 but pillow 12.3.0 is installed.
