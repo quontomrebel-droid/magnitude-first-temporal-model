@@ -1,18 +1,19 @@
-# Claim Ledger
+# Claim and Evidence Ledger
 
-This ledger separates claims by epistemic status. Update it when evidence is added.
-
-| Claim | Classification | Current support | What would strengthen or weaken it |
+| Claim | Epistemic class | Status at this version | Evidence / limitations |
 |---|---|---|---|
-| \(D_{ij}=|t_i-t_j|\) defines nonnegative pairwise separations | Definition | Stated definition | Clarify domain and assumptions |
-| Translation and reflection preserve pairwise magnitudes | Mathematical theorem | Direct algebraic proof available | Formal proof and tests |
-| Exact line distances yield a centered Gram matrix of rank at most one | Mathematical theorem | Classical distance geometry / MDS result | Derivation, source review, numerical tests |
-| A “now” origin is physically privileged | Unestablished physical claim | None | A precise model and distinguishing evidence |
-| MFTM explains aging | Unestablished physical claim | None | Mechanism, operational definitions, predictive tests |
-| MFTM makes a novel quantum prediction | Unestablished physical claim | None | Explicit derivation and discriminating experiment |
+| `D[i,j] = abs(t[i] - t[j])` defines nonnegative pairwise temporal magnitudes | Definition | Defined | Does not show magnitude is ontologically primary |
+| `D` obeys pseudometric axioms on event labels | Theorem | Proved directly from absolute value; tested | It is a metric only if distinct labels have distinct coordinates |
+| Complete exact line-distance data determine coordinates up to translation/reflection | Theorem | Proved under assumptions; numerically tested | Requires line embedding, complete labels and exact/noiseless distances |
+| Reflection preserves all pairwise magnitudes | Theorem | Proved; computationally tested | Direction cannot be inferred without directional data |
+| A reference origin gives a physically privileged “present” | Physical/ontological claim | Not established | Coordinate choice alone has no such implication |
+| One directed relation resolves global reflection for distinct positions | Theorem | Proof sketched; computationally tested | Does not solve arbitrary incomplete/noisy layouts or timestamp ties |
+| Noise affects reconstruction accuracy | Synthetic computational finding | Characterized under one declared noise model | Results are seed/noise/estimator specific; no universal monotonicity claim |
+| Relativistic proper time and coordinate-time difference are generally distinct | Established theoretical distinction; illustrative code | Simple inertial example tested | Not an MFTM prediction or a full relativistic extension |
+| MFTM is relevant to quantum relational time or indefinite causal order | Physical/literature hypothesis | Unresolved | Requires derivation beyond analogy and a sourced literature audit |
+| MFTM makes a novel empirical prediction | Empirical hypothesis | Unresolved; no model/prediction specified | Requires observable, baseline, protocol and evidence |
+| MFTM adds a novel structure beyond distance geometry | Mathematical/novelty claim | Unresolved | Requires formal definition and prior-art review |
 
-## Required labels
+## Evidence classes
 
-Use one of: **DEFINITION**, **THEOREM**, **CODE TEST**, **EMPIRICAL FINDING**, **INTERPRETATION**, **SPECULATION**, **OPEN QUESTION**.
-
-Every nontrivial claim should include assumptions, evidence, confidence, limitations, and the observation that would count against it.
+**Definition**, **Theorem**, **Code test**, **Synthetic computational finding**, **Empirical physical finding**, **Interpretation**, **Speculation**, and **Open question** are not interchangeable. The test log records tested software behavior only. The noise sweep is synthetic and is not physical evidence.
