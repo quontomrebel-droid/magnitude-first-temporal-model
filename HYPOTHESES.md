@@ -1,64 +1,26 @@
-# Hypothesis Register
+# Preregistered Hypothesis Registry (MFTM)
 
-Status: initial protocol draft. Hypotheses must be reviewed and frozen before confirmatory experiments. No results are implied.
+This registry follows the current formal specification. It separates mathematical propositions from representational, statistical, philosophical, and physical hypotheses. Statuses describe the evidence actually available in this repository; synthetic computations are not empirical physical evidence.
 
-Each hypothesis should be tagged as mathematical, implementation, empirical, or physical. Passing a software test does not validate a physical claim.
+| ID | Hypothesis | Classification | Current status | What would change the status |
+|---|---|---|---|---|
+| H1 | Distance sufficiency: exact complete distances from points known to lie on a line determine the configuration up to translation/reflection | Mathematical proposition | **Proved under stated assumptions** | A counterexample under the exact assumptions; proof and computational checks are in THEORY.md and tests |
+| H2 | Orientation non-identifiability: global reflection preserves all pairwise magnitudes | Mathematical proposition | **Proved** | The defining absolute-distance identity would have to fail; exact proof in THEORY.md |
+| H3 | Reference-point sufficiency: setting one event to zero changes origin but adds no global orientation information | Representational claim | **Proved as a coordinate identity** | A stated model in which changing origin changes orientation information without adding a directional constraint |
+| H4 | Ordering recovery: one directed relation between distinct positions breaks global reflection ambiguity of a non-degenerate line reconstruction | Mathematical proposition | **Supported computationally; proof sketched** | Counterexample under complete exact line distances plus stated assumptions; ties need separate treatment |
+| H5 | Noise-dependent identifiability: reconstruction residual and reliability depend on noise level/structure | Statistical inference problem | **Characterized computationally; not a universal monotonicity theorem** | Replicated protocols, uncertainty intervals, alternative noise models, and held-out validation |
+| H6 | Relativistic compatibility: the representation can be compared with relativity without conflating coordinate intervals with proper time | Physical/theoretical question | **Unresolved** | A fully specified relativistic mapping and consistency analysis against established formalism |
+| H7 | Quantum relevance: MFTM supplies a nontrivial connection to relational clocks or indefinite causal order | Literature/physical hypothesis | **Unresolved** | A derivation adding explanatory or predictive content beyond cited frameworks; analogy alone is insufficient |
+| H8 | Empirical novelty: MFTM produces an observable prediction different from an established baseline | Empirical hypothesis | **Unresolved; no prediction specified** | Explicit observable, model, parameterization, baseline, test protocol, and evidence |
+| H9 | Representational equivalence: complete exact 1-D distance data and coordinates represent the same configuration modulo isometries | Mathematical proposition | **Proved under stated assumptions** | Counterexample under complete exact line-distance assumptions |
+| H10 | Novel structure: magnitude-first formalization introduces a nontrivial structure not already captured by distance geometry/equivalent formulations | Mathematical/novelty question | **Unresolved** | Formal definition, prior-art review, and a theorem or consequence not equivalent to known results |
 
-## H1 — Distance-matrix invariance
-For any real coordinate vector \(t\), the matrix \(D_{ij}=|t_i-t_j|\) is symmetric, nonnegative, and has a zero diagonal.
-- **Test:** randomized property tests plus fixed edge cases.
-- **Against:** any reproducible counterexample in exact arithmetic; numerical implementation errors should be isolated from the mathematical claim.
+## Scoring vocabulary
 
-## H2 — Translation invariance
-Replacing every coordinate by \(t_i+c\) leaves all pairwise magnitudes unchanged.
-- **Test:** randomized shifts over multiple scales.
-- **Against:** a counterexample beyond justified floating-point tolerance.
+- **Proved:** a mathematical argument establishes the proposition under explicit assumptions.
+- **Disproved:** a counterexample violates the proposition under those assumptions.
+- **Supported computationally:** implemented tests pass for tested cases; this does not replace a proof.
+- **Unresolved:** available evidence does not decide the claim.
+- **Not empirically testable (as currently stated):** no operational observable or discriminating test has been specified.
 
-## H3 — Reflection invariance
-Replacing every coordinate by \(-t_i+c\) leaves all pairwise magnitudes unchanged.
-- **Test:** randomized reflection and shift.
-- **Against:** a reproducible counterexample.
-
-## H4 — One-dimensional MDS rank
-For exact one-dimensional Euclidean distances, the double-centered Gram matrix is positive semidefinite and has rank at most one.
-- **Test:** eigenvalue and rank checks with documented tolerances.
-- **Against:** stable negative eigenvalues or rank greater than one after numerical error is ruled out.
-
-## H5 — Reconstruction up to isometry
-For exact complete labeled distances generated by points on a line, reconstruction returns coordinates equivalent to the original up to translation and reflection.
-- **Test:** compare reconstructed pairwise distances and align coordinates under both orientations.
-- **Against:** reproducible reconstruction failure on non-degenerate valid cases.
-
-## H6 — Invalid-input detection
-The implementation should reject malformed matrices (wrong shape, non-finite entries, asymmetry, negative magnitudes, or nonzero diagonal) when validation is requested.
-- **Test:** explicit invalid-input suite.
-- **Against:** an invalid matrix accepted contrary to the documented contract.
-
-## H7 — Noise sensitivity characterization
-Reconstruction quality changes with the magnitude and structure of perturbations to pairwise distances.
-- **Test:** synthetic noise sweeps with fixed seeds and predeclared metrics.
-- **Against:** not a directional truth claim; report observed curves and uncertainty. Do not retrofit a universal monotonicity claim unless proved.
-
-## H8 — Identifiability boundary
-Magnitude-only data do not uniquely identify absolute origin or global orientation.
-- **Test:** construct distinct coordinate vectors related by translation/reflection and verify identical matrices.
-- **Against:** the current claim would require a counterexample showing these transformations change the distances under the stated definition.
-
-## H9 — Relativistic distinction
-A generic coordinate-time difference cannot be assumed to equal proper time for all worldlines and coordinate systems.
-- **Test:** derive and check examples from standard relativistic metrics; cite authoritative sources.
-- **Against:** a counterexample to a carefully stated universal distinction, not an analogy.
-
-## H10 — Novel physical prediction
-MFTM yields a quantitatively specified prediction that differs from an established physical model in a measurable regime.
-- **Test:** none until a concrete model, observable, parameterization, baseline, and preregistered threshold are specified.
-- **Against:** predictions that are mathematically equivalent to the baseline, unfalsifiable, or unsupported by a mechanism do not qualify as a novel prediction.
-
-## Tiered success criteria
-
-1. **Tier A — implementation:** deterministic tests pass.
-2. **Tier B — mathematical:** propositions are proved or counterexamples are found; numerical checks agree.
-3. **Tier C — literature:** prior art and equivalent formulations are assessed.
-4. **Tier D — physical:** a novel, falsifiable prediction survives independent scrutiny and comparison with established models.
-
-Success at a lower tier does not imply success at a higher tier.
+These statuses are versioned research bookkeeping. Physical hypotheses H6–H8 and the novelty question H10 must not be promoted based solely on unit tests.
