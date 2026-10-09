@@ -40,7 +40,7 @@ PYTHONPATH=src python experiments/run_baseline.py
 
 The committed result files record the synthetic experiment and test execution. Fixed random seeds are used. For exact details and caveats, see experiments/README.md and results/experiment_results.json.
 
-The expanded local suite currently passes 502 tests across the core, property-style, specification, and partial-order modules. This is software-level evidence only. The partial-order helper tests alternative order structures as explicitly supplied constraints; it does not infer causal edges from magnitudes.
+The expanded local suite passes 515 tests across core distance, property-style, specification, partial-order, and validation-edge modules. Branch-aware coverage records 100% of the 171 statements and 84 branches in the four production modules under src/mftm. This is software-level evidence only. The partial-order helper tests alternative order structures as explicitly supplied constraints; it does not infer causal edges from magnitudes.
 
 ## Hypothesis registry
 
