@@ -7,7 +7,7 @@ from .distances import (
     validate_distance_matrix,
     validate_pseudometric,
 )
-from .reconstruction import (
+from .partial_order import incomparable_pairs, transitive_closure\nfrom .reconstruction import (
     align_coordinates,
     coordinate_origin,
     inertial_proper_time,
@@ -22,10 +22,10 @@ __all__ = [
     "coordinate_origin",
     "coordinates_to_distances",
     "distance_metrics",
-    "inertial_proper_time",
+    "incomparable_pairs",\n    "inertial_proper_time",
     "orient_from_directed_relation",
     "reconstruct_coordinates_1d",
     "reconstruction_residuals",
     "validate_distance_matrix",
-    "validate_pseudometric",
+    "validate_pseudometric",\n    "transitive_closure",
 ]
