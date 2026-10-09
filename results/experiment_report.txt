@@ -1,0 +1,20 @@
+Seed: 20261009; replicates per noise level: 50; levels: 8
+Exact reconstruction checks:
+  n=  2: max_abs=0.000e+00; RMSE=0.000e+00
+  n=  3: max_abs=2.220e-16; RMSE=1.170e-16
+  n=  5: max_abs=1.776e-15; RMSE=1.105e-15
+  n= 10: max_abs=1.332e-15; RMSE=4.982e-16
+  n= 20: max_abs=2.665e-15; RMSE=7.998e-16
+  n= 50: max_abs=2.887e-15; RMSE=6.375e-16
+  n=100: max_abs=7.550e-15; RMSE=1.184e-15
+Noise sweep (synthetic; RMSE of reconstructed distance matrix vs true matrix):
+  sigma=0       mean=2.74321e-15 median=2.47674e-15 sd=1.39481e-15
+  sigma=0.0001  mean=3.55473e-05 median=3.45638e-05 sd=6.40914e-06
+  sigma=0.001   mean=0.00035547 median=0.000345644 sd=6.40879e-05
+  sigma=0.01    mean=0.00355471 median=0.00345713 sd=0.000640954
+  sigma=0.05    mean=0.0177667 median=0.0173008 sd=0.00320246
+  sigma=0.1     mean=0.0354924 median=0.0346396 sd=0.00641039
+  sigma=0.25    mean=0.0885822 median=0.0867783 sd=0.0159616
+  sigma=0.5     mean=0.177056 median=0.173173 sd=0.0319979
+Wrote results/experiment_results.json
+Wrote results/experiment_results.csv
