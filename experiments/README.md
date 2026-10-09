@@ -4,21 +4,26 @@
 
 Run from repository root:
 
-```bash
+~~~bash
 PYTHONPATH=src python experiments/run_baseline.py
-```
+~~~
 
-The fixed-seed noise sweep uses 50 replicates per level, 20 events, and levels 0, 1e-4, 1e-3, 1e-2, 5e-2, 0.1, 0.25 and 0.5. It writes `results/experiment_results.json` and `results/experiment_results.csv`. Metrics include pairwise RMSE against the generating true matrix, pairwise RMSE against the perturbed input, and coordinate RMSE after translation/reflection alignment.
+The fixed-seed synthetic noise sweep uses 50 replicates per level, 20 events, and levels 0, 1e-4, 1e-3, 1e-2, 5e-2, 0.1, 0.25, and 0.5. It writes results/experiment_results.json and results/experiment_results.csv. Metrics compare raw input RMSE against the generating distance matrix with RMSE after rank-one MDS reconstruction; the output includes paired improvement and two-sided 95% Student-t intervals for means across the 50 replicates.
+
+Each replicate seed is reused across levels, making the noise comparison paired over the same underlying coordinates and standardized noise. The confidence intervals describe this synthetic design only.
 
 This is a synthetic algorithmic experiment, not an experiment on physical time. Results describe the stated noise model and estimator; no universal monotonicity theorem is assumed.
 
-## Test suite
+## Test suite and coverage
 
-```bash
+~~~bash
 PYTHONPATH=src pytest -q --junitxml=results/junit.xml
-```
+coverage erase
+coverage run --branch --source=src/mftm -m pytest -q
+coverage report -m
+~~~
 
-The test suite covers Families A–J: metric axioms; transformations; reflection; MDS/reconstruction; directed constraints; an inertial proper-time illustration; quantum-scope and novelty-scope guards; reference origin/equivalence; and noise/metrics. Seeded randomized property checks are used without an additional test-generation dependency.
+The final local run passed 515 tests. Branch-aware coverage was 100% of 171 statements and 84 branches across src/mftm's four production modules. The suite covers metric axioms; affine transformations; reflection; MDS/reconstruction; directed constraints; an inertial proper-time illustration; quantum-scope and novelty-scope guards; reference origins; synthetic noise; partial orders; and validation/error paths.
 
 ## Not executed
 
