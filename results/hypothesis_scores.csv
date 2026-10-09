@@ -1,0 +1,11 @@
+id,hypothesis,classification,status,test_evidence,limits
+H1,Distance sufficiency,mathematical proposition,Proved under stated assumptions,Families A and D; exact line reconstruction across event counts 2–100,Complete exact labeled distances and a known one-dimensional Euclidean embedding.
+H2,Orientation non-identifiability,mathematical proposition,Proved,Family C reflection invariance and identical-input control,Global reflection cannot be identified from the distance matrix alone.
+H3,Reference-point sufficiency,representational claim,Proved as coordinate identity,Family I reference-origin invariance,Choosing an origin is not evidence for a physically privileged present.
+H4,Ordering recovery with minimal extra information,mathematical proposition,Supported computationally; proof sketched in THEORY.md,Family E directed-constraint tests,"Assumes complete exact line data, reliable directed relation and distinct event positions."
+H5,Noise-dependent identifiability,statistical inference problem,Characterized computationally under one synthetic noise model,50 replicates at each of eight Gaussian noise levels; fixed seed protocol,"Not a universal monotonicity theorem; depends on noise model, sampling and estimator."
+H6,Relativistic compatibility,physical/theoretical question,Unresolved,Family F tests one standard inertial proper-time illustration only,No full relativistic extension or MFTM prediction has been established.
+H7,Quantum relevance,literature/physical hypothesis,Unresolved,Scope guard prevents classifying distance-geometry tests as quantum evidence,Requires derivation beyond analogy and a sourced literature audit.
+H8,Empirical novelty,empirical hypothesis,Unresolved; no observable prediction specified,No empirical data were collected,"Requires quantitative prediction baseline protocol and evidence."
+H9,Representational equivalence,mathematical proposition,Proved under stated assumptions,Family I isometry-equivalence and reconstruction tests,Complete exact distances; uniqueness only up to one-dimensional isometries.
+H10,Novel structure,mathematical/novelty question,Unresolved,No prior-art audit completed,Needs a formal structure/consequence and comparison with existing distance geometry.
