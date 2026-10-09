@@ -1,0 +1,42 @@
+{
+  "project": "MFTM baseline run",
+  "run_date": "2026-10-09",
+  "environment": {"python": "3.13.5", "numpy": "2.3.5"},
+  "test_execution": {
+    "command": "PYTHONPATH=src pytest -q --junitxml=results/junit.xml",
+    "tests_collected_and_run": 222,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 222,
+    "status": "PASS"
+  },
+  "experiment_execution": {
+    "command": "PYTHONPATH=src python experiments/run_baseline.py",
+    "master_seed": 20261009,
+    "replicates_per_noise_level": 50,
+    "noise_level_count": 8,
+    "event_count_noise_sweep": 20,
+    "classification": "synthetic computational finding, not empirical physical evidence"
+  },
+  "hypotheses": [
+    {"id":"H1","hypothesis":"Distance sufficiency","classification":"mathematical proposition","status":"Proved under stated assumptions","test_evidence":"Families A and D; exact line reconstruction across event counts 2–100","limits":"Complete exact labeled distances and a known one-dimensional Euclidean embedding."},
+    {"id":"H2","hypothesis":"Orientation non-identifiability","classification":"mathematical proposition","status":"Proved","test_evidence":"Family C reflection invariance and identical-input control","limits":"Global reflection cannot be identified from the distance matrix alone."},
+    {"id":"H3","hypothesis":"Reference-point sufficiency","classification":"representational claim","status":"Proved as coordinate identity","test_evidence":"Family I reference-origin invariance","limits":"Choosing an origin is not evidence for a physically privileged present."},
+    {"id":"H4","hypothesis":"Ordering recovery with minimal extra information","classification":"mathematical proposition","status":"Supported computationally; proof sketched in THEORY.md","test_evidence":"Family E directed-constraint tests","limits":"Assumes complete exact line data, reliable directed relation and distinct event positions."},
+    {"id":"H5","hypothesis":"Noise-dependent identifiability","classification":"statistical inference problem","status":"Characterized computationally under one synthetic noise model","test_evidence":"50 replicates at each of eight Gaussian noise levels; fixed seed protocol","limits":"Not a universal monotonicity theorem; depends on noise model, sampling and estimator."},
+    {"id":"H6","hypothesis":"Relativistic compatibility","classification":"physical/theoretical question","status":"Unresolved","test_evidence":"Family F tests one standard inertial proper-time illustration only","limits":"No full relativistic extension or MFTM prediction has been established."},
+    {"id":"H7","hypothesis":"Quantum relevance","classification":"literature/physical hypothesis","status":"Unresolved","test_evidence":"Scope guard prevents classifying distance-geometry tests as quantum evidence","limits":"Requires derivation beyond analogy and a sourced literature audit."},
+    {"id":"H8","hypothesis":"Empirical novelty","classification":"empirical hypothesis","status":"Unresolved; no observable prediction specified","test_evidence":"No empirical data were collected","limits":"Requires quantitative prediction, baseline, protocol and evidence."},
+    {"id":"H9","hypothesis":"Representational equivalence","classification":"mathematical proposition","status":"Proved under stated assumptions","test_evidence":"Family I isometry-equivalence and reconstruction tests","limits":"Complete exact distances; uniqueness only up to one-dimensional isometries."},
+    {"id":"H10","hypothesis":"Novel structure","classification":"mathematical/novelty question","status":"Unresolved","test_evidence":"No prior-art audit completed","limits":"Needs a formal structure/consequence and comparison with existing distance geometry."}
+  ],
+  "explicitly_not_established": [
+    "magnitude as ontologically fundamental",
+    "a universal privileged present",
+    "a new quantum mechanism",
+    "an explanation of aging",
+    "a new physically distinguishable prediction",
+    "novelty relative to the full literature"
+  ]
+}
