@@ -24,7 +24,7 @@ For an exact line embedding, \(B\) is positive semidefinite and has rank at most
 
 ## What the code can establish
 
-The Python implementation computes pairwise magnitudes, validates matrix properties, checks the pseudometric triangle inequality, reconstructs a rank-one line embedding through MDS, aligns reconstruction under translation/reflection, applies a directed-order constraint, and provides an explicitly limited inertial proper-time example. The test suite checks mathematical identities and code behavior. The synthetic noise sweep measures reconstruction behavior for one declared simulation design.
+The Python implementation computes pairwise magnitudes, validates matrix properties and pseudometric axioms, reconstructs a rank-one line embedding through MDS, aligns reconstruction under translation/reflection, applies a directed-order constraint, provides an explicitly limited inertial proper-time example, and computes explicitly supplied partial-order closure without inferring order from distances. The test suite checks mathematical identities and code behavior. The synthetic noise sweep measures reconstruction behavior for one declared simulation design.
 
 The tests do **not** establish that magnitude is ontologically more fundamental, identify a universal present, explain aging, validate a quantum connection, or demonstrate a novel physical prediction. H6–H8 and H10 remain unresolved.
 
@@ -40,7 +40,7 @@ PYTHONPATH=src python experiments/run_baseline.py
 
 The committed result files record the synthetic experiment and test execution. Fixed random seeds are used. For exact details and caveats, see experiments/README.md and results/experiment_results.json.
 
-## Hypothesis registry
+The expanded local suite currently passes 502 tests across the core, property-style, specification, and partial-order modules. This is software-level evidence only. The partial-order helper tests alternative order structures as explicitly supplied constraints; it does not infer causal edges from magnitudes.\n\n## Hypothesis registry
 
 The formal registry is H1–H10 in HYPOTHESES.md. Each item has a classification, current status, and status-change criterion. Status labels distinguish proof from computational support and from empirical physical evidence.
 
