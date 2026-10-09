@@ -4,8 +4,10 @@
 
 ## Test suite
 
+The suite covers `tests/test_distances.py`, `tests/test_properties.py`, `tests/test_specification_extended.py`, and `tests/test_partial_order.py`. Coverage includes pseudometric axioms, randomized invariance, MDS reconstruction, reflection-blindness controls, directed relations, proper-time example checks, synthetic noise diagnostics, and partial-order closure/incomparability.
+
 - Command: `PYTHONPATH=src pytest -q --junitxml=results/junit.xml`
-- Tests: 222 passed, 0 failures, 0 errors, 0 skipped.
+- Tests: 502 passed, 0 failures, 0 errors, 0 skipped.
 - Python: 3.13.5; NumPy: 2.3.5.
 
 ## Exact line reconstruction
