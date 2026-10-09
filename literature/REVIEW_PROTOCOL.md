@@ -1,30 +1,28 @@
 # Literature Review Protocol
 
-Status: protocol only; a completed search and bibliography have not yet been recorded.
+Status: search protocol in place; the full reference audit is not yet complete.
 
-## Research questions
+## Search questions
 
-1. Which established fields already study Euclidean distance matrices, distance geometry, multidimensional scaling, ordinal/magnitude-only data, temporal ordering, and reconstruction?
-2. Which results characterize uniqueness up to isometry, missing-data identifiability, noise sensitivity, and line embeddability?
-3. How do standard relativity treatments distinguish coordinate time from proper time?
-4. Which quantum approaches treat time as a parameter, observable, relational quantity, or emergent concept, and what are their actual mathematical claims?
+1. Distance geometry: Euclidean distance matrices, one-dimensional embedding, classical multidimensional scaling, uniqueness up to isometry, noisy and incomplete matrix reconstruction.
+2. Relational time: Page–Wootters mechanism, quantum clocks, conditional evolution, relational observables, and current qualifications.
+3. Indefinite causal order: quantum switch, witnesses, and what experiments establish about ordinary temporal chronology.
+4. Relativity: coordinate time, proper time, simultaneity, worldlines, observer-relative clocks, and global-present claims.
+5. Foundations: whether “magnitude-first” offers a theorem or prediction not equivalent to known distance geometry or temporal/causal frameworks.
 
-## Search procedure
+## Search and evidence procedure
 
-- Search scholarly indexes, textbooks, primary papers, and authoritative technical references.
-- Record query strings, date, source, inclusion decision, and relevance.
-- Follow citations backward and forward from foundational works.
-- Search synonyms and equivalent mathematical formulations, not only the label “MFTM.”
-- Distinguish independent prior art from superficial lexical similarity.
+- Search primary articles, authoritative reviews/textbooks, and bibliographic databases.
+- Record query, access date, inclusion decision, exact title, authors, venue, year, DOI or stable URL, central result, assumptions, limitations, and relevance to each H1–H10.
+- Follow references backward and citations forward; search synonyms and mathematically equivalent formulations rather than only “MFTM.”
+- Separate an author's result from a paper's speculative interpretation.
+- Treat non-discovery in a limited search as absence of evidence, not evidence of novelty.
 
-## Screening fields
+## Initial anchors supplied for review
 
-For each source, record: full citation, DOI/URL, publication type, central result, assumptions, relation to MFTM, possible equivalence, limitations, and follow-up references.
+- Page & Wootters (1983), relational-clock proposal: verify the original publication and later analyses before claiming implications.
+- Chiribella et al., quantum-switch framework; Rubino et al. (2017), experimental work on indefinite causal order: check exact bibliographic metadata and operational conclusions in the primary papers.
+- Classical Euclidean distance geometry / MDS literature: establish the theorem and uniqueness assumptions from standard sources.
+- Relativity references on proper time and inertial clocks: identify authoritative derivations.
 
-## Novelty standard
-
-A change in terminology or coordinate convention is not a novel theory. A novelty claim requires a clearly stated result that is not already established, with a reproducible comparison to the closest prior work. Absence of a source in a limited search is not evidence that no prior art exists.
-
-## Status
-
-No claim of novelty is made by this protocol. Populate a bibliography and evidence table before making any priority claim.
+These are leads, not a completed bibliography. No novelty claim is made until full citations and relevance classifications are recorded.
