@@ -7,11 +7,11 @@
   },
   "test_execution": {
     "command": "PYTHONPATH=src pytest -q --junitxml=results/junit.xml",
-    "tests_collected_and_run": 502,
+    "tests_collected_and_run": 515,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "passed": 502,
+    "passed": 515,
     "status": "PASS"
   },
   "experiment_execution": {
@@ -20,7 +20,14 @@
     "replicates_per_noise_level": 50,
     "noise_level_count": 8,
     "event_count_noise_sweep": 20,
-    "classification": "synthetic computational finding, not empirical physical evidence"
+    "classification": "synthetic computational finding, not empirical physical evidence",
+    "metrics": [
+      "raw noisy matrix RMSE vs true",
+      "rank-one reconstructed matrix RMSE vs true and observed",
+      "paired error reduction",
+      "two-sided 95% Student-t intervals for mean across 50 replicate-level values",
+      "coordinate RMSE after translation/reflection alignment"
+    ]
   },
   "hypotheses": [
     {
@@ -111,5 +118,30 @@
     "an explanation of aging",
     "a new physically distinguishable prediction",
     "novelty relative to the full literature"
-  ]
+  ],
+  "coverage": {
+    "scope": "src/mftm production modules",
+    "statement_coverage": {
+      "covered": 171,
+      "total": 171,
+      "percent": 100
+    },
+    "branch_coverage": {
+      "covered": 84,
+      "total": 84,
+      "percent": 100
+    },
+    "modules": [
+      "src/mftm/__init__.py",
+      "src/mftm/distances.py",
+      "src/mftm/partial_order.py",
+      "src/mftm/reconstruction.py"
+    ]
+  },
+  "package_validation": {
+    "editable_install": "PASS",
+    "byte_compilation": "PASS",
+    "global_pip_check": "CAVEAT",
+    "global_pip_check_note": "Unrelated environment conflict: moviepy 2.2.1 requires pillow<12.0; pillow 12.3.0 is installed. MFTM does not depend on moviepy or pillow."
+  }
 }
