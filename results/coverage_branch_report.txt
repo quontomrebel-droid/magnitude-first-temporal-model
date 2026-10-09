@@ -1,0 +1,8 @@
+Name                         Stmts   Miss Branch BrPart Cover
+----------------------------------------------------------------
+src/mftm/__init__.py             4      0      0      0  100%
+src/mftm/distances.py           58      0     30      0  100%
+src/mftm/partial_order.py       28      0     16      0  100%
+src/mftm/reconstruction.py      81      0     38      0  100%
+----------------------------------------------------------------
+TOTAL                          171      0     84      0  100%
