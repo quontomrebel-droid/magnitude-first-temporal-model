@@ -58,9 +58,9 @@
       "id": "H4",
       "hypothesis": "Ordering recovery with minimal extra information",
       "classification": "mathematical proposition",
-      "status": "Supported computationally; proof sketched in THEORY.md",
+      "status": "Proved under stated assumptions; implementation tested",
       "test_evidence": "Family E directed-constraint tests",
-      "limits": "Assumes complete exact line data, reliable directed relation and distinct event positions."
+      "limits": "Requires complete exact line data, a reliable directed relation, and distinct positions."
     },
     {
       "id": "H5",
