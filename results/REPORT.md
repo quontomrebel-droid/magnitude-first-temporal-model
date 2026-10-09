@@ -364,7 +364,7 @@ coverage json -o results/coverage_branch.json
 PYTHONPATH=src python experiments/run_baseline.py
 ~~~
 
-The environment was Python 3.13.5, NumPy 2.3.5, pytest 9.0.2, and coverage.py 7.13.3. The final test run recorded 515 passing tests. Branch-aware coverage reported 171 of 171 statements and 84 of 84 branches. The experiment used seed 20261009, 50 replicates per level, and eight noise levels. Generated files include experiment_results.json, experiment_results.csv, junit.xml, coverage_branch.json, coverage reports, and console logs.
+The environment was Python 3.13.5, NumPy 2.3.5, pytest 9.0.2, and coverage.py 7.13.3. The final test run recorded 515 passing tests. Branch-aware coverage reported 171 of 171 statements and 84 of 84 branches. The experiment used seed 20261009, 50 replicates per level, and eight noise levels. Committed project artifacts include experiment_results.json, experiment_results.csv, test_report.txt, experiment_report.txt, coverage_branch_report.txt, coverage_summary.json, compile_report.txt, and pip_check.txt. The local run also generated results/junit.xml and raw results/coverage_branch.json; these can be regenerated with the commands above.
 
 Reproduction does not depend on a claim of new physics. It should reproduce the reported software and synthetic-data behaviour. A full independent reproduction, mutation-testing report, and completed literature audit remain future work.
 
