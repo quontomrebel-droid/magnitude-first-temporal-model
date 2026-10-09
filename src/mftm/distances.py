@@ -1,34 +1,45 @@
-"""Basic mathematical utilities for one-dimensional distance matrices."""
+"""Utilities for finite one-dimensional magnitude-first temporal data.
 
+The package concerns representations and distance geometry. It does not infer
+that time is ontologically a distance, and it does not make physical predictions.
+"""
 from __future__ import annotations
 
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
 
+FloatMatrix = NDArray[np.float64]
 
-def coordinates_to_distances(coordinates: ArrayLike) -> NDArray[np.float64]:
-    """Return D[i, j] = abs(x[i] - x[j]) for a finite 1-D coordinate array."""
-    x = np.asarray(coordinates, dtype=float)
+
+def coordinates_to_distances(coordinates: ArrayLike) -> FloatMatrix:
+    """Return D[i,j] = abs(x[i]-x[j]) from a finite one-dimensional vector."""
+    x = np.asarray(coordinates, dtype=np.float64)
     if x.ndim != 1:
         raise ValueError("coordinates must be a one-dimensional array")
     if not np.all(np.isfinite(x)):
         raise ValueError("coordinates must contain only finite values")
-    return np.abs(x[:, None] - x[None, :])
+    with np.errstate(over="ignore", invalid="ignore"):
+        d = np.abs(x[:, None] - x[None, :])
+    if not np.all(np.isfinite(d)):
+        raise ValueError("pairwise differences overflowed floating-point range")
+    return d
 
 
 def validate_distance_matrix(
-    distances: ArrayLike,
-    *,
-    atol: float = 1e-10,
-) -> NDArray[np.float64]:
-    """Validate basic distance-matrix properties and return a float array.
+    distances: ArrayLike, *, atol: float = 1e-10
+) -> FloatMatrix:
+    """Validate matrix shape, finiteness, symmetry, non-negativity and zero diagonal.
 
-    This checks symmetry, non-negativity, finiteness, and a zero diagonal.
-    It does not prove that the matrix is a Euclidean distance matrix.
+    This basic validator intentionally does not establish triangle inequality or
+    Euclidean embeddability. Tiny negative round-off in [-atol, 0) is clamped.
     """
-    d = np.asarray(distances, dtype=float)
+    if not np.isfinite(atol) or atol < 0:
+        raise ValueError("atol must be finite and non-negative")
+    d = np.asarray(distances, dtype=np.float64)
+    if d.ndim == 1 and d.size == 0:
+        d = np.empty((0, 0), dtype=np.float64)
     if d.ndim != 2 or d.shape[0] != d.shape[1]:
-        raise ValueError("distances must be a square 2-D matrix")
+        raise ValueError("distances must be a square two-dimensional matrix")
     if not np.all(np.isfinite(d)):
         raise ValueError("distances must contain only finite values")
     if np.any(d < -atol):
@@ -37,19 +48,43 @@ def validate_distance_matrix(
         raise ValueError("distances must be symmetric")
     if not np.allclose(np.diag(d), 0.0, atol=atol, rtol=0.0):
         raise ValueError("distance matrix diagonal must be zero")
-    # Clamp tiny negative roundoff values to zero after validation.
-    return np.maximum(d, 0.0)
+    out = np.maximum(d, 0.0).copy()
+    np.fill_diagonal(out, 0.0)
+    return out
 
 
-def classical_mds_gram(distances: ArrayLike) -> NDArray[np.float64]:
-    """Return the double-centered Gram matrix B = -1/2 J D^2 J.
+def validate_pseudometric(distances: ArrayLike, *, atol: float = 1e-10) -> FloatMatrix:
+    """Validate the pseudometric axioms for a finite distance matrix."""
+    d = validate_distance_matrix(distances, atol=atol)
+    if d.size:
+        slack = d[:, None, :] + d[None, :, :] - d[:, :, None]
+        if np.any(slack < -atol):
+            raise ValueError("distance matrix violates triangle inequality")
+    return d
 
-    Input entries are distances, not squared distances. This function validates
-    basic matrix properties but does not guarantee Euclidean embeddability.
-    """
-    d = validate_distance_matrix(distances)
+
+def classical_mds_gram(distances: ArrayLike, *, atol: float = 1e-10) -> FloatMatrix:
+    """Compute B = -1/2 J D^2 J from a validated distance matrix."""
+    d = validate_distance_matrix(distances, atol=atol)
     n = d.shape[0]
     if n == 0:
-        return np.empty((0, 0), dtype=float)
-    centering = np.eye(n) - np.ones((n, n), dtype=float) / n
-    return -0.5 * centering @ (d**2) @ centering
+        return np.empty((0, 0), dtype=np.float64)
+    j = np.eye(n, dtype=np.float64) - np.ones((n, n), dtype=np.float64) / n
+    b = -0.5 * j @ np.square(d) @ j
+    return (b + b.T) / 2.0
+
+
+def distance_metrics(reference: ArrayLike, candidate: ArrayLike) -> dict[str, float]:
+    """Return max-absolute error, RMSE, and mean absolute error for matrices."""
+    a = np.asarray(reference, dtype=np.float64)
+    b = np.asarray(candidate, dtype=np.float64)
+    if a.shape != b.shape or a.size == 0:
+        raise ValueError("reference and candidate must have the same non-empty shape")
+    if not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
+        raise ValueError("inputs must be finite")
+    delta = a - b
+    return {
+        "max_abs_error": float(np.max(np.abs(delta))),
+        "rmse": float(np.sqrt(np.mean(np.square(delta)))),
+        "mae": float(np.mean(np.abs(delta))),
+    }
