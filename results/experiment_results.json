@@ -1,0 +1,40 @@
+{
+  "project": "Magnitude-First Temporal Model (MFTM)",
+  "classification": "synthetic computational experiment; not empirical physics",
+  "generated_utc_or_local_date": "2026-10-09",
+  "python_version": "3.13.5",
+  "numpy_version": "2.3.5",
+  "master_seed": 20261009,
+  "noise_replicates_per_level": 50,
+  "noise_levels_sigma": [0.0, 0.0001, 0.001, 0.01, 0.05, 0.1, 0.25, 0.5],
+  "methods": {
+    "noise": "symmetric Gaussian perturbation of complete pairwise distances; clamp at zero; rank-one spectral reconstruction (strict=False)",
+    "coordinate_alignment": "best of translation/reflection for comparison to synthetic generating coordinates",
+    "metrics": "pairwise RMSE against true and observed matrices; centered/reflected coordinate RMSE"
+  },
+  "caveats": [
+    "Input points and noise are synthetic.",
+    "Observed symmetric entries reuse symmetrized Gaussian noise.",
+    "No assumption that every metric decreases monotonically with noise.",
+    "Results assess the implementation and this noise protocol, not physical time."
+  ],
+  "exact_reconstruction": [
+    {"n_events":2,"max_abs_error":0.0,"rmse":0.0,"mae":0.0},
+    {"n_events":3,"max_abs_error":2.220446049250313e-16,"rmse":1.1702778228589004e-16,"mae":7.401486830834377e-17},
+    {"n_events":5,"max_abs_error":1.7763568394002505e-15,"rmse":1.1045463746402282e-15,"mae":8.482103908136196e-16},
+    {"n_events":10,"max_abs_error":1.3322676295501878e-15,"rmse":4.981951864410894e-16,"mae":3.58046925441613e-16},
+    {"n_events":20,"max_abs_error":2.6645352591003757e-15,"rmse":7.998037730897211e-16,"mae":5.301314942585123e-16},
+    {"n_events":50,"max_abs_error":2.886579864025407e-15,"rmse":6.375153022490769e-16,"mae":4.0470959916660834e-16},
+    {"n_events":100,"max_abs_error":7.549516567451064e-15,"rmse":1.1835099127299257e-15,"mae":7.747639335642375e-16}
+  ],
+  "noise_sweep": [
+    {"noise_sigma":0.0,"replicates":50,"pairwise_rmse_vs_true_mean":2.7432086940973507e-15,"pairwise_rmse_vs_true_median":2.4767372026344308e-15,"pairwise_rmse_vs_true_sd":1.3948066641813544e-15,"pairwise_rmse_vs_observed_mean":2.7432086940973507e-15,"coordinate_rmse_after_isometry_mean":1.944348151569992e-15,"coordinate_rmse_after_isometry_median":1.7434274255580415e-15},
+    {"noise_sigma":0.0001,"replicates":50,"pairwise_rmse_vs_true_mean":3.5547260246495446e-05,"pairwise_rmse_vs_true_median":3.456376465705861e-05,"pairwise_rmse_vs_true_sd":6.4091410501101785e-06,"pairwise_rmse_vs_observed_mean":7.131976204619248e-05,"coordinate_rmse_after_isometry_mean":2.5135708772910594e-05,"coordinate_rmse_after_isometry_median":2.444027237238087e-05},
+    {"noise_sigma":0.001,"replicates":50,"pairwise_rmse_vs_true_mean":0.0003554697891763343,"pairwise_rmse_vs_true_median":0.0003456444665755975,"pairwise_rmse_vs_true_sd":6.408785851359025e-05,"pairwise_rmse_vs_observed_mean":0.0007131890892654656,"coordinate_rmse_after_isometry_mean":0.0002513574456844267,"coordinate_rmse_after_isometry_median":0.0002444075461952548},
+    {"noise_sigma":0.01,"replicates":50,"pairwise_rmse_vs_true_mean":0.0035547103569156567,"pairwise_rmse_vs_true_median":0.003457126829757058,"pairwise_rmse_vs_true_sd":0.0006409544551812752,"pairwise_rmse_vs_observed_mean":0.007131546290979498,"coordinate_rmse_after_isometry_mean":0.00251361104347864,"coordinate_rmse_after_isometry_median":0.0024445578247432025},
+    {"noise_sigma":0.05,"replicates":50,"pairwise_rmse_vs_true_mean":0.017766685400093053,"pairwise_rmse_vs_true_median":0.017300811160865584,"pairwise_rmse_vs_true_sd":0.003202461152840314,"pairwise_rmse_vs_observed_mean":0.03564100748211261,"coordinate_rmse_after_isometry_mean":0.012568957699674397,"coordinate_rmse_after_isometry_median":0.012233520891875939},
+    {"noise_sigma":0.1,"replicates":50,"pairwise_rmse_vs_true_mean":0.03549243486837874,"pairwise_rmse_vs_true_median":0.0346396445312116,"pairwise_rmse_vs_true_sd":0.006410391732142006,"pairwise_rmse_vs_observed_mean":0.07119014572839873,"coordinate_rmse_after_isometry_mean":0.025140604518507758,"coordinate_rmse_after_isometry_median":0.024493927545911218},
+    {"noise_sigma":0.25,"replicates":50,"pairwise_rmse_vs_true_mean":0.08858223503926807,"pairwise_rmse_vs_true_median":0.08677825860195709,"pairwise_rmse_vs_true_sd":0.01596160044399152,"pairwise_rmse_vs_observed_mean":0.17736184928972437,"coordinate_rmse_after_isometry_mean":0.06287797649320385,"coordinate_rmse_after_isometry_median":0.061414847401482994},
+    {"noise_sigma":0.5,"replicates":50,"pairwise_rmse_vs_true_mean":0.17705579396158824,"pairwise_rmse_vs_true_median":0.17317255649056285,"pairwise_rmse_vs_true_sd":0.03199786841603087,"pairwise_rmse_vs_observed_mean":0.35273879817814857,"coordinate_rmse_after_isometry_mean":0.12588439426031595,"coordinate_rmse_after_isometry_median":0.12302498502179592}
+  ]
+}
