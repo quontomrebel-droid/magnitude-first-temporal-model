@@ -1,0 +1,2 @@
+$ python -m compileall -q src tests experiments
+PASS: all Python sources compiled without syntax errors
